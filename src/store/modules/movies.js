@@ -43,8 +43,9 @@ const moviesStore = {
       },
       root: true,
     },
-    async fetchMovies({ getters, commit }) {
+    async fetchMovies({ getters, commit, dispatch }) {
       try {
+        dispatch("toggelLoader", true, { root: true });
         const { currentPage, moviesPerPage, sliceIDs } = getters;
 
         const from = currentPage * moviesPerPage - moviesPerPage;
@@ -57,6 +58,9 @@ const moviesStore = {
         commit(MOVIES, movies);
       } catch (err) {
         console.log(err);
+      }
+      finally{
+        dispatch("toggelLoader", false, { root: true });
       }
     },
     changeCurrentPage({ commit, dispatch }, page) {

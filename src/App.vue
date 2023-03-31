@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <LoaderAct />
     <PosterBg :poster="posterBg" />
     <MoviesList :list="moviesList" @changePoster="onChangePoster" />
     <MoviesPagination
@@ -16,6 +17,7 @@ import { mapActions, mapGetters } from "vuex";
 import MoviesList from "@/components/MoviesList";
 import PosterBg from "@/components/PosterBg";
 import MoviesPagination from "@/components/MoviesPagination";
+import LoaderAct from "@/components/LoaderAct";
 
 export default {
   name: "App",
@@ -23,6 +25,7 @@ export default {
     MoviesList,
     PosterBg,
     MoviesPagination,
+    LoaderAct,
   },
   data: () => ({
     posterBg: "",
@@ -52,7 +55,6 @@ export default {
     },
     onPageChanged(page) {
       this.$router.push({ query: { page } });
-      this.changeCurrentPage(page);
     },
   },
 };
