@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <LoaderAct />
+    <NotificationApp />
     <PosterBg :poster="posterBg" />
     <HeaderApp />
     <MoviesList :list="moviesList" @changePoster="onChangePoster" />
@@ -20,6 +21,7 @@ import PosterBg from "@/components/PosterBg";
 import MoviesPagination from "@/components/MoviesPagination";
 import LoaderAct from "@/components/LoaderAct";
 import HeaderApp from "@/components/HeaderApp";
+import NotificationApp from "@/components/NotificationApp";
 
 export default {
   name: "App",
@@ -29,6 +31,7 @@ export default {
     MoviesPagination,
     LoaderAct,
     HeaderApp,
+    NotificationApp,
   },
   data: () => ({
     posterBg: "",
